@@ -1,0 +1,17 @@
+services:
+  knitipedia-frontend:
+    image: node:24-slim
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    # command: npm run dev
+    command: sleep infinity
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - PORT=5173
+      - HOST=0.0.0.0
